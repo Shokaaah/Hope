@@ -1,0 +1,26 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <% if user_signed_in? %>
+        <li class="active"><a href="/users/show">Home</a></li>
+        <li><a href="/users/edit"> Edit Account</a></li>
+      <% else %>
+        <li class="active"><a href="/">Home</a></li>
+      <% end %>
+
+      <li><a href="/comments/new">Chat</a></li> 
+      <li><a href="#">Page 3</a></li> 
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+        <li><a data-method="delete" href="/users/sign_out"><span class="glyphicon glyphicon-log-out"></span> Sign out</a></li>
+      <% else %>
+        <li><a href="/users/sign_up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="/users/sign_in"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
