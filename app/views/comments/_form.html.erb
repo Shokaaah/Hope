@@ -6,7 +6,7 @@
       <small class="label label-warning">Cannot be blank or contain more than 2000 symbols.</small>
     </div>
     <% if user_signed_in? %>
-      <%= f.submit 'Post', class: 'btn btn-primary btn-lg' %>
+      <%= f.submit 'Submit', class: 'btn btn-primary btn-lg' %>
     <% else %>
       <%= link_to 'You need to sign in for chating', new_user_session_path, class: 'btn btn-primary btn-lg'%>
     <% end %>

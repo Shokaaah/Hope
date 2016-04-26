@@ -1,12 +1,19 @@
 <li class="media comment">
   <div class="media-body">
     <h4 class="media-heading">
-      <% if comment.user.username == current_user.username %>
-        <%= link_to comment.user.username, user_path(comment.user.username) %> says
-      <% else %>
-        <%= link_to comment.user.username, profile_path(comment.user.username) %> says
-      <% end %>
-      <small class="text-muted">[at <%= comment.created_at.strftime('%-d %B %Y, %H:%M:%S') %>]</small></h4>
-    <p><%= comment.body %></p>
+    <% if user_signed_in? %>  
+        <% if comment.user.username == current_user.username %>
+          <%= image_tag comment.user.avatar_url(:small_thumb).to_s %>
+          <%= link_to comment.user.username, user_path(comment.user.username) %> says
+        <% else %>
+          <%= image_tag comment.user.avatar_url(:small_thumb).to_s %>
+          <%= link_to comment.user.username, profile_path(comment.user.username) %> says
+        <% end %>
+        <small class="text-muted">[at <%= comment.created_at.strftime('%-d %B %Y, %H:%M:%S') %>]</small></h4>
+      <p><%= comment.body %></p>
+    <% else %>
+      <%= comment.user.username %>
+      <p><%= comment.body %></p>
+    <% end %>
   </div>
 </li>

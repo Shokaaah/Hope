@@ -1,7 +1,8 @@
 <h1>Users#profile</h1>
 <p>Find me in app/views/users/profile.html.erb</p>
- EMAIL    : <span><%= current_user.email %></span><br />
+ EMAIL    :<span><%= current_user.email %></span><br />
  USERNAME : <span><%= current_user.username %></span><br />
  NAME     : <span><%= current_user.name %></span><br />
- SURNAME  : <span><%= current_user.surname %></span><br />
+ SURNAME: <span><%= current_user.surname %></span><br />
+ AVATAR: <%= image_tag current_user.avatar_url(:thumb).to_s %>
  <!-- <span><%= current_user %> </span><br /> -->
